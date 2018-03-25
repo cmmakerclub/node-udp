@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^0.17.1",
+    "binary-parser": "^1.3.2",
+    "cmmc-mqtt": "^0.1.6",
+    "cmmc-parsers": "^0.0.19",
+    "coap": "^0.21.0"
+  }
+}
