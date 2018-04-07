@@ -1,4 +1,4 @@
-var PORT = 22112
+var PORT = 30001
 var HOST = '0.0.0.0'
 var dgram = require('dgram')
 var server = dgram.createSocket('udp4')
@@ -20,7 +20,6 @@ setInterval(function () { /*console.log('counter = ', counter, ' m/s') counter =
 server.on('listening', function () {
   var address = server.address()
   console.log(new Date() + ' - UDP Server listening on ' + address.address + ':' + address.port)
-  var address = server.address()
   var port = address.port
   var family = address.family
   var ipaddr = address.address
