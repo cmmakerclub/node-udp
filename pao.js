@@ -15,7 +15,6 @@ odin.on('packetsend', function (packet) {
 })
 
 var counter = 0
-setInterval(function () { /*console.log('counter = ', counter, ' m/s') counter = 0;*/ }, 1000)
 
 server.on('listening', function () {
   var address = server.address()
@@ -36,9 +35,6 @@ server.on('message', function (message, remote) {
   counter++
   console.log('Received %d bytes from %s:%d\n', message.length, remote.address, remote.port)
   console.log('data comming at' + new Date())
-  //var inByte = Buffer.from(message);
-  //console.log(inByte.toString())
-  //console.log(inByte.toString('hex'))
   console.log('counter = ', counter)
   var data = {server_counter: counter}
   try {
@@ -63,10 +59,10 @@ server.on('message', function (message, remote) {
   var out = Object.assign({}, {makerlab: data})
   console.log(out)
   if (out.makerlab.myName) {
-    odin.publish('CMMC/apirak/' + out.makerlab.myName, JSON.stringify(out))
+    odin.publish('CMMC/pao/' + out.makerlab.myName, JSON.stringify(out))
   }
   else {
-    odin.publish('CMMC/apirak-nb/' + out.makerlab.myName, JSON.stringify(out))
+    odin.publish('CMMC/pao-nb/' + out.makerlab.myName, JSON.stringify(out))
   }
 
 })
